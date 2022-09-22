@@ -15,8 +15,19 @@ const express = require('express'),
    })
  })
 
+ // single page CEOS
  router.get('/:slug', (req, res) =>{
-   
+   const {slug} = req.params;
+    cEo= db.find(co => co.slug === slug )
+    res.render('template', {
+      locals: {
+         title: 'Aple CEO',
+         data: db
+      }, partials:{
+         index: 'ceo-page'
+      }
+   })
+
  })
 
 
